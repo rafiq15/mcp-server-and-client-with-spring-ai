@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: spring-ai-mcp-server
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring_ai_mcp_db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  ai:
+    mcp:
+      server:
+        name: spring-ai-mcp-server
+        version: 1.0.0
+        type: SYNC
+        stdio:
+          enabled: false
+        sse-message-endpoint: /mcp/message
+
+
+logging.level.org.springframework.ai: DEBUG
+
+server.port: 9080

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: spring-ai-mcp-client
+  ai:
+    mcp:
+      client:
+        sse:
+          transport-mode: WEBFLUX
+          connections:
+            spring-ai-mcp-server:
+              url: http://localhost:9080
+        type: SYNC
+        request-timeout: 30s
+    ollama:
+      chat:
+        options:
+          model: llama3.2:latest
+        model: llama3.2
+server:
+  port: 9081
